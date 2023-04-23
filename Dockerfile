@@ -8,12 +8,12 @@ COPY . .
 ENV GO111MODULE=on
 ENV GOPROXY="https://mirrors.aliyun.com/goproxy/"
 #编译
-RUN go build -o load-balance
+RUN go build -o pod-controller
 
 RUN mkdir -p /app/logs
 #如果有配置
 #COPY --from=build /go/config.yml /
 #运行
-CMD ["/app/load-balance"]
+CMD ["/app/pod-controller"]
 
 
