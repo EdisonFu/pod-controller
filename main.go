@@ -15,7 +15,7 @@ func main() {
 	l4g.LoadConfiguration("./log4go.xml")
 
 	go func() {
-		err := http.ListenAndServe(":6065", nil)
+		err := http.ListenAndServe(":6066", nil)
 		if err != nil {
 			l4g.Error("pprof err:%v", err)
 			return
