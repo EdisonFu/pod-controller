@@ -4,10 +4,19 @@ import (
 	l4g "github.com/alecthomas/log4go"
 	"net/http"
 	"strconv"
+	"time"
 )
 
 //创建Get类型的http服务器，从req中解析数据
 func StartServer() {
+	go func() {
+		for {
+			GetPodMemeryState()
+			time.Sleep(time.Minute)
+		}
+	}()
+
+
 	http.HandleFunc("/send", HandleSend)
 	http.ListenAndServe(":9000", nil)
 }
